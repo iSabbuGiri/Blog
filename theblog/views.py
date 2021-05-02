@@ -12,6 +12,7 @@ class HomeView(ListView):
     model = Post
     template_name = 'home.html'
     #ordering = ['-id']
+    ordering = ['published_date']
 
 class ArticleDetailView(DetailView):
     model = Post
