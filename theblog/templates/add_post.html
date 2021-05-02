@@ -3,6 +3,8 @@
 
 {% block content %}
 
+{% if user.is_authenticated %}
+
 <h1>Add Post....</h1>
 <br/>
 <br/>
@@ -14,5 +16,12 @@
         <button class="btn btn-secondary">Post</button>
     </form>
 </div>    
+
+
+{% else %}
+
+You are not allowed here (and you know it...)
+
+{% endif %}
 
 {% endblock %}
