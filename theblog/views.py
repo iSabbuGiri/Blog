@@ -14,6 +14,10 @@ class HomeView(ListView):
     #ordering = ['-id']
     ordering = ['published_date']
 
+def CategoryView(request, cats):
+    category_posts = Post.objects.filter(category=cats)
+    return render(request, 'category.html', {'cats':cats.title(), 'category_posts':category_posts})
+
 class ArticleDetailView(DetailView):
     model = Post
     template_name = 'article_details.html'
@@ -48,3 +52,6 @@ class DeletePostView(DeleteView):
     template_name = 'delete_post.html'    
     #fields = ['title', 'title_tag', 'body']
     success_url = reverse_lazy('home')
+
+
+
