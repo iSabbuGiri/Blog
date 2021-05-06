@@ -17,6 +17,9 @@
 
 <hr>
 <br/>
+
+
+<img src="{{post.header_image.url}}"><br/><br/>
 {{post.body|safe}}
  
 <br/><br/>
@@ -39,7 +42,7 @@
       {% endif %}   
    {% else %}   
       <small> <a href="{% url 'login'%}">Login</a> to like the posts</small>
-   {% endif %}    
+   {% endif %}     
        - {{total_likes}} Likes
  </form>
 

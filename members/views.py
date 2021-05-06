@@ -1,8 +1,15 @@
 from django.shortcuts import render
 from django.views import generic
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm,PasswordChangeForm
+from django.contrib.auth.views import PasswordChangeView
 from django.urls import reverse_lazy
 from .forms import SignUpForm, EditProfileForm
+
+
+class PasswordsChangeView(PasswordChangeView):
+    form_class = PasswordChangeForm
+    success_url = reverse_lazy('home')
+
 
 class UserRegisterView(generic.CreateView):
     form_class = SignUpForm
@@ -16,4 +23,4 @@ class UserEditView(generic.UpdateView):
     success_url = reverse_lazy('home')
 
     def get_object(self):
-        self.request.user
+        return self.request.user
