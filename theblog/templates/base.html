@@ -60,9 +60,17 @@
               Profile
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="{% url 'edit_profile' %}">Edit Setting</a></li>
-             
-              <li><a class="dropdown-item" href="{% url 'show_profile_page' user.profile.id %}">Show Profile Page</a></li>
+              <a class="dropdown-item" href="{% url 'edit_profile' %}">Edit Settings</a>
+
+              {% if user.profile.id %}
+
+                <a class="dropdown-item" href="{% url 'edit_profile_page' user.profile.id %}">Edit Profile Page</a>
+                <a class="dropdown-item" href="{% url 'show_profile_page' user.profile.id %}">Show Profile Page</a>
+              
+              {% else % }
+                <li><a class="dropdown-item" href="{% url 'create_user_profile'  %}">Create Profile Page</a></li>
+              {% endif %}
+            
             </ul>
           </li>
 
