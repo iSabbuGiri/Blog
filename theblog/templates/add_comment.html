@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %} Comment on Blog Post {% endblock %}
+
+{% block content %}
+
+
+
+    <h1>Add Comment....</h1>
+    <br/>
+    <br/>
+    <div class="form-control">
+        <form method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <br/>
+            <button class="btn btn-secondary">Add Comment</button>
+        </form>
+    </div>    
+
+  
+
+
+
+
+{% endblock %}
