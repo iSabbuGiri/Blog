@@ -7,6 +7,14 @@ from django.urls import reverse_lazy
 from .forms import SignUpForm, EditProfileForm
 from theblog.models import Profile
 
+class EditProfilePageView(generic.UpdateView):
+    model = Profile
+    template_name = 'registration/edit_profile_page.html'
+    fields = ['bio', 'facebook_url']
+
+
+    success_url = reverse_lazy('home')
+
 
 class ShowProfilePageView(DetailView):
     model = Profile
